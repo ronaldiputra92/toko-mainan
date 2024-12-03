@@ -55,7 +55,7 @@ export async function PATCH(
       return new NextResponse("Unauthorized", { status: 401 });
     }
 
-    const banner = await db.banner.updateMany({
+    const banner = await db.banner.update({
       where: {
         id: params.bannerId,
       },
@@ -94,7 +94,7 @@ export async function DELETE(
     if (!storeByUserId) {
       return new NextResponse("Unauthorized", { status: 401 });
     }
-    const banner = await db.banner.deleteMany({
+    const banner = await db.banner.delete({
       where: {
         id: params.bannerId,
       },
